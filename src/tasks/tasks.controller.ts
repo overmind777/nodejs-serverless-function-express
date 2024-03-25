@@ -1,14 +1,22 @@
-import {Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe} from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { TasksService } from './tasks.service';
-import { CreateTaskDto } from './dto/create-task.dto';
-import { UpdateTaskDto } from './dto/update-task.dto';
+import { Prisma } from '@prisma/client';
 
 @Controller('tasks')
 export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 
   @Post()
-  create(@Body() createTaskDto: CreateTaskDto) {
+  create(@Body() createTaskDto: Prisma.TasksCreateInput) {
     return this.tasksService.create(createTaskDto);
   }
 
@@ -23,7 +31,10 @@ export class TasksController {
   }
 
   @Patch(':id')
-  update(@Param('id', ParseIntPipe) id: number, @Body() updateTaskDto: UpdateTaskDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateTaskDto: Prisma.TasksCreateInput,
+  ) {
     return this.tasksService.update(id, updateTaskDto);
   }
 
