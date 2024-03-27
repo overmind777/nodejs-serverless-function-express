@@ -51,9 +51,9 @@ let TasksService = class TasksService {
         });
     }
 };
-exports.TasksService = TasksService;
-exports.TasksService = TasksService = __decorate([
+TasksService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [database_service_1.DatabaseService])
 ], TasksService);
+exports.TasksService = TasksService;
 //# sourceMappingURL=tasks.service.js.map

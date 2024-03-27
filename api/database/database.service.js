@@ -14,8 +14,8 @@ let DatabaseService = class DatabaseService extends client_1.PrismaClient {
         await this.$connect();
     }
 };
-exports.DatabaseService = DatabaseService;
-exports.DatabaseService = DatabaseService = __decorate([
+DatabaseService = __decorate([
     (0, common_1.Injectable)()
 ], DatabaseService);
+exports.DatabaseService = DatabaseService;
 //# sourceMappingURL=database.service.js.map

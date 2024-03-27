@@ -14,12 +14,12 @@ const tasks_module_1 = require("./tasks/tasks.module");
 const database_module_1 = require("./database/database.module");
 let AppModule = class AppModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+AppModule = __decorate([
     (0, common_1.Module)({
         imports: [tasks_module_1.TasksModule, database_module_1.DatabaseModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
 ], AppModule);
+exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

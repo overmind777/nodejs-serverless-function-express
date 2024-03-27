@@ -1,5 +1,5 @@
-import { DatabaseService } from '../database/database.service';
-import { Prisma } from '@prisma/client';
+import { DatabaseService } from "../database/database.service";
+import { Prisma } from "@prisma/client";
 export declare class TasksService {
     private readonly databaseService;
     constructor(databaseService: DatabaseService);

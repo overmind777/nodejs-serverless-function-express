@@ -1,5 +1,5 @@
-import { TasksService } from './tasks.service';
-import { Prisma } from '@prisma/client';
+import { TasksService } from "./tasks.service";
+import { Prisma } from "@prisma/client";
 export declare class TasksController {
     private readonly tasksService;
     constructor(tasksService: TasksService);

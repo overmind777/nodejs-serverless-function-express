@@ -13,12 +13,12 @@ const tasks_controller_1 = require("./tasks.controller");
 const database_module_1 = require("../database/database.module");
 let TasksModule = class TasksModule {
 };
-exports.TasksModule = TasksModule;
-exports.TasksModule = TasksModule = __decorate([
+TasksModule = __decorate([
     (0, common_1.Module)({
         imports: [database_module_1.DatabaseModule],
         controllers: [tasks_controller_1.TasksController],
         providers: [tasks_service_1.TasksService],
     })
 ], TasksModule);
+exports.TasksModule = TasksModule;
 //# sourceMappingURL=tasks.module.js.map

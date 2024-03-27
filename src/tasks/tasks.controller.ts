@@ -7,11 +7,11 @@ import {
   Param,
   Delete,
   ParseIntPipe,
-} from '@nestjs/common';
-import { TasksService } from './tasks.service';
-import { Prisma } from '@prisma/client';
+} from "@nestjs/common";
+import {TasksService} from "./tasks.service";
+import {Prisma} from "@prisma/client";
 
-@Controller('tasks')
+@Controller("tasks")
 export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 
@@ -25,21 +25,21 @@ export class TasksController {
     return this.tasksService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number) {
+  @Get(":id")
+  findOne(@Param("id", ParseIntPipe) id: number) {
     return this.tasksService.findOne(id);
   }
 
-  @Patch(':id')
+  @Patch(":id")
   update(
-    @Param('id', ParseIntPipe) id: number,
+    @Param("id", ParseIntPipe) id: number,
     @Body() updateTaskDto: Prisma.TasksCreateInput,
   ) {
     return this.tasksService.update(id, updateTaskDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.tasksService.remove(+id);
   }
 }
