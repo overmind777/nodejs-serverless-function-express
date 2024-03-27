@@ -7,14 +7,6 @@
     }
   ],
   "routes": [
-    {
-      "src": "/api/tasks",
-      "dest": "/api/tasks",
-      "methods": ["GET", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Methods": "GET",
-        "Access-Control-Allow-Headers": "Content-Type"
-      }
-    }
+    { "src": "/(.*)", "dest": "dist/main.js" }
   ]
 }
