@@ -16,6 +16,9 @@ exports.TasksController = void 0;
 const common_1 = require("@nestjs/common");
 const tasks_service_1 = require("./tasks.service");
 const client_1 = require("@prisma/client");
+const swagger_1 = require("@nestjs/swagger");
+const task_dto_1 = require("./dto/task.dto");
+const create_task_dto_1 = require("./dto/create-task.dto");
 let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;
@@ -33,11 +36,15 @@ let TasksController = class TasksController {
         return this.tasksService.update(id, updateTaskDto);
     }
     remove(id) {
-        return this.tasksService.remove(+id);
+        return this.tasksService.remove(id);
     }
 };
 __decorate([
     (0, common_1.Post)(),
+    (0, swagger_1.ApiOperation)({ summary: "Create task" }),
+    (0, swagger_1.ApiBody)({ type: create_task_dto_1.CreateTask }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.CREATED, description: "Success", type: task_dto_1.Task }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.NOT_FOUND, description: "Bad Request" }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
@@ -45,12 +52,20 @@ __decorate([
 ], TasksController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    (0, swagger_1.ApiOperation)({ summary: "Returns all tasks" }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.OK, description: "Success", isArray: true, type: task_dto_1.Task }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.BAD_REQUEST, description: "Bad Request" }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.NOT_FOUND, description: "Not Found" }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], TasksController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(":id"),
+    (0, swagger_1.ApiOperation)({ summary: "Returns task by id" }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.FOUND, description: "Success", type: task_dto_1.Task }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.NOT_FOUND, description: "Bad Request" }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.NOT_FOUND, description: "Not Found" }),
     __param(0, (0, common_1.Param)("id", common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
@@ -58,6 +73,11 @@ __decorate([
 ], TasksController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Patch)(":id"),
+    (0, swagger_1.ApiOperation)({ summary: "Returns all available tasks" }),
+    (0, swagger_1.ApiResponse)({ type: task_dto_1.Task }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.OK, description: "OK" }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.BAD_REQUEST, description: "Bad Request" }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.NOT_FOUND, description: "Not Found" }),
     __param(0, (0, common_1.Param)("id", common_1.ParseIntPipe)),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -66,12 +86,18 @@ __decorate([
 ], TasksController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, swagger_1.ApiOperation)({ summary: "Delete task by id" }),
+    (0, swagger_1.ApiResponse)({ type: task_dto_1.Task }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.ACCEPTED, description: "Accepted" }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.NO_CONTENT, description: "No Content" }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.NOT_FOUND, description: "Not Found" }),
+    __param(0, (0, common_1.Param)("id", common_1.ParseIntPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], TasksController.prototype, "remove", null);
 TasksController = __decorate([
+    (0, swagger_1.ApiTags)('Tasks'),
     (0, common_1.Controller)("tasks"),
     __metadata("design:paramtypes", [tasks_service_1.TasksService])
 ], TasksController);

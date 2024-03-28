@@ -35,7 +35,7 @@ export declare class TasksController {
         createdAt: Date;
         updatedAt: Date;
     }>;
-    remove(id: string): Promise<{
+    remove(id: number): Promise<{
         id: number;
         title: string;
         description: string;
