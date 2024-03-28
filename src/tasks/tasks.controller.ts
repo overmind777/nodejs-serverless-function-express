@@ -33,7 +33,7 @@ export class TasksController {
   @Patch(":id")
   update(
     @Param("id", ParseIntPipe) id: number,
-    @Body() updateTaskDto: Prisma.TasksCreateInput,
+    @Body() updateTaskDto: Prisma.TasksUpdateInput,
   ) {
     return this.tasksService.update(id, updateTaskDto);
   }

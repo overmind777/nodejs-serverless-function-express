@@ -16,5 +16,10 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
+  },
+  "watchOptions": {
+    "watchFile": "dinamicPriorityPolling",
+    "watchDirectory": "dinamicPriorityPolling",
+    "excludeDirectories": ["**/node_modules", "api"]
   }
 }

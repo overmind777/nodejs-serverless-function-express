@@ -7,7 +7,6 @@ export declare class TasksService {
         id: number;
         title: string;
         description: string;
-        date: Date;
         importance: string;
         createdAt: Date;
         updatedAt: Date;
@@ -16,7 +15,6 @@ export declare class TasksService {
         id: number;
         title: string;
         description: string;
-        date: Date;
         importance: string;
         createdAt: Date;
         updatedAt: Date;
@@ -25,7 +23,6 @@ export declare class TasksService {
         id: number;
         title: string;
         description: string;
-        date: Date;
         importance: string;
         createdAt: Date;
         updatedAt: Date;
@@ -34,7 +31,6 @@ export declare class TasksService {
         id: number;
         title: string;
         description: string;
-        date: Date;
         importance: string;
         createdAt: Date;
         updatedAt: Date;
@@ -43,7 +39,6 @@ export declare class TasksService {
         id: number;
         title: string;
         description: string;
-        date: Date;
         importance: string;
         createdAt: Date;
         updatedAt: Date;

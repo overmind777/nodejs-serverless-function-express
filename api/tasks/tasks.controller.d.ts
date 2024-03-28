@@ -7,7 +7,6 @@ export declare class TasksController {
         id: number;
         title: string;
         description: string;
-        date: Date;
         importance: string;
         createdAt: Date;
         updatedAt: Date;
@@ -16,7 +15,6 @@ export declare class TasksController {
         id: number;
         title: string;
         description: string;
-        date: Date;
         importance: string;
         createdAt: Date;
         updatedAt: Date;
@@ -25,16 +23,14 @@ export declare class TasksController {
         id: number;
         title: string;
         description: string;
-        date: Date;
         importance: string;
         createdAt: Date;
         updatedAt: Date;
     }>;
-    update(id: number, updateTaskDto: Prisma.TasksCreateInput): Promise<{
+    update(id: number, updateTaskDto: Prisma.TasksUpdateInput): Promise<{
         id: number;
         title: string;
         description: string;
-        date: Date;
         importance: string;
         createdAt: Date;
         updatedAt: Date;
@@ -43,7 +39,6 @@ export declare class TasksController {
         id: number;
         title: string;
         description: string;
-        date: Date;
         importance: string;
         createdAt: Date;
         updatedAt: Date;
