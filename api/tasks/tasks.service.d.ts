@@ -3,17 +3,10 @@ import { Prisma } from "@prisma/client";
 export declare class TasksService {
     private readonly databaseService;
     constructor(databaseService: DatabaseService);
-    create(createTaskDto: Prisma.TasksCreateInput): Promise<{
-        id: number;
-        title: string;
-        description: string;
-        importance: string;
-        createdAt: Date;
-        updatedAt: Date;
-    }>;
     findAll(): Promise<{
         id: number;
         title: string;
+        category: string;
         description: string;
         importance: string;
         createdAt: Date;
@@ -22,6 +15,16 @@ export declare class TasksService {
     findOne(id: number): Promise<{
         id: number;
         title: string;
+        category: string;
+        description: string;
+        importance: string;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
+    create(createTaskDto: Prisma.TasksCreateInput): Promise<{
+        id: number;
+        title: string;
+        category: string;
         description: string;
         importance: string;
         createdAt: Date;
@@ -30,6 +33,7 @@ export declare class TasksService {
     update(id: number, updateTaskDto: Prisma.TasksUpdateInput): Promise<{
         id: number;
         title: string;
+        category: string;
         description: string;
         importance: string;
         createdAt: Date;
@@ -38,6 +42,7 @@ export declare class TasksService {
     remove(id: number): Promise<{
         id: number;
         title: string;
+        category: string;
         description: string;
         importance: string;
         createdAt: Date;

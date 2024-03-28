@@ -16,11 +16,6 @@ let TasksService = class TasksService {
     constructor(databaseService) {
         this.databaseService = databaseService;
     }
-    async create(createTaskDto) {
-        return this.databaseService.tasks.create({
-            data: createTaskDto,
-        });
-    }
     async findAll() {
         return this.databaseService.tasks.findMany();
     }
@@ -34,6 +29,11 @@ let TasksService = class TasksService {
             throw new common_1.NotFoundException(`Task with ID "${id}" not found.`);
         }
         return task;
+    }
+    async create(createTaskDto) {
+        return this.databaseService.tasks.create({
+            data: createTaskDto,
+        });
     }
     async update(id, updateTaskDto) {
         return this.databaseService.tasks.update({

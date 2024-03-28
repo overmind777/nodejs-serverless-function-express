@@ -4,6 +4,9 @@ export class Task {
   @ApiProperty({ description: "Task identifier", nullable: false })
   id: number;
 
+  @ApiProperty({ description: "Task category", nullable: true })
+  category: string;
+
   @ApiProperty({ description: "Task title", nullable: true })
   title: string;
 

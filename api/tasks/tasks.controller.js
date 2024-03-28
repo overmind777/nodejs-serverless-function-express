@@ -23,14 +23,14 @@ let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;
     }
-    create(createTaskDto) {
-        return this.tasksService.create(createTaskDto);
-    }
     findAll() {
         return this.tasksService.findAll();
     }
     findOne(id) {
         return this.tasksService.findOne(id);
+    }
+    create(createTaskDto) {
+        return this.tasksService.create(createTaskDto);
     }
     update(id, updateTaskDto) {
         return this.tasksService.update(id, updateTaskDto);
@@ -39,17 +39,6 @@ let TasksController = class TasksController {
         return this.tasksService.remove(id);
     }
 };
-__decorate([
-    (0, common_1.Post)(),
-    (0, swagger_1.ApiOperation)({ summary: "Create task" }),
-    (0, swagger_1.ApiBody)({ type: create_task_dto_1.CreateTask }),
-    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.CREATED, description: "Success", type: task_dto_1.Task }),
-    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.NOT_FOUND, description: "Bad Request" }),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], TasksController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
     (0, swagger_1.ApiOperation)({ summary: "Returns all tasks" }),
@@ -71,6 +60,17 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], TasksController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Post)(),
+    (0, swagger_1.ApiOperation)({ summary: "Create task" }),
+    (0, swagger_1.ApiBody)({ type: create_task_dto_1.CreateTask }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.CREATED, description: "Success", type: task_dto_1.Task }),
+    (0, swagger_1.ApiResponse)({ status: common_1.HttpStatus.NOT_FOUND, description: "Bad Request" }),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], TasksController.prototype, "create", null);
 __decorate([
     (0, common_1.Patch)(":id"),
     (0, swagger_1.ApiOperation)({ summary: "Returns all available tasks" }),

@@ -14,6 +14,10 @@ const swagger_1 = require("@nestjs/swagger");
 class CreateTask {
 }
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: "Task category", nullable: true }),
+    __metadata("design:type", String)
+], CreateTask.prototype, "category", void 0);
+__decorate([
     (0, swagger_1.ApiProperty)({ description: "Task title", nullable: true }),
     __metadata("design:type", String)
 ], CreateTask.prototype, "title", void 0);

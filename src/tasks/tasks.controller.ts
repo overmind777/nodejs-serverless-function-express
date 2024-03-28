@@ -19,15 +19,6 @@ import { CreateTask } from './dto/create-task.dto';
 export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 
-  @Post()
-  @ApiOperation({ summary: "Create task" })
-  @ApiBody({type: CreateTask})
-  @ApiResponse({ status: HttpStatus.CREATED, description: "Success", type: Task })
-  @ApiResponse({ status: HttpStatus.NOT_FOUND, description: "Bad Request" })
-  create(@Body() createTaskDto: Prisma.TasksCreateInput) {
-    return this.tasksService.create(createTaskDto);
-  }
-
   @Get()
   @ApiOperation({ summary: "Returns all tasks" })
   @ApiResponse({ status: HttpStatus.OK, description: "Success", isArray: true, type: Task })
@@ -44,6 +35,15 @@ export class TasksController {
   @ApiResponse({ status: HttpStatus.NOT_FOUND, description: "Not Found" })
   findOne(@Param("id", ParseIntPipe) id: number) {
     return this.tasksService.findOne(id);
+  }
+
+  @Post()
+  @ApiOperation({ summary: "Create task" })
+  @ApiBody({type: CreateTask})
+  @ApiResponse({ status: HttpStatus.CREATED, description: "Success", type: Task })
+  @ApiResponse({ status: HttpStatus.NOT_FOUND, description: "Bad Request" })
+  create(@Body() createTaskDto: Prisma.TasksCreateInput) {
+    return this.tasksService.create(createTaskDto);
   }
 
   @Patch(":id")

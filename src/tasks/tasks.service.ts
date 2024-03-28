@@ -6,12 +6,6 @@ import {Prisma} from "@prisma/client";
 export class TasksService {
   constructor(private readonly databaseService: DatabaseService) {}
 
-  async create(createTaskDto: Prisma.TasksCreateInput) {
-    return this.databaseService.tasks.create({
-      data: createTaskDto,
-    });
-  }
-
   async findAll() {
     return this.databaseService.tasks.findMany();
   }
@@ -28,6 +22,12 @@ export class TasksService {
     }
 
     return task;
+  }
+
+  async create(createTaskDto: Prisma.TasksCreateInput) {
+    return this.databaseService.tasks.create({
+      data: createTaskDto,
+    });
   }
 
   async update(id: number, updateTaskDto: Prisma.TasksUpdateInput) {

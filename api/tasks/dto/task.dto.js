@@ -18,6 +18,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Task.prototype, "id", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: "Task category", nullable: true }),
+    __metadata("design:type", String)
+], Task.prototype, "category", void 0);
+__decorate([
     (0, swagger_1.ApiProperty)({ description: "Task title", nullable: true }),
     __metadata("design:type", String)
 ], Task.prototype, "title", void 0);
