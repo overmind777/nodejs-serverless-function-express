@@ -1,16 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { DatabaseService } from '../database/database.service';
-import { Prisma } from '@prisma/client';
+import {Injectable, NotFoundException} from "@nestjs/common";
+import {DatabaseService} from "../database/database.service";
+import {Prisma} from "@prisma/client";
 
 @Injectable()
 export class TasksService {
   constructor(private readonly databaseService: DatabaseService) {}
-
-  async create(createTaskDto: Prisma.TasksCreateInput) {
-    return this.databaseService.tasks.create({
-      data: createTaskDto,
-    });
-  }
 
   async findAll() {
     return this.databaseService.tasks.findMany();
@@ -28,6 +22,12 @@ export class TasksService {
     }
 
     return task;
+  }
+
+  async create(createTaskDto: Prisma.TasksCreateInput) {
+    return this.databaseService.tasks.create({
+      data: createTaskDto,
+    });
   }
 
   async update(id: number, updateTaskDto: Prisma.TasksUpdateInput) {
