@@ -11,8 +11,9 @@ datasource db {
 model Tasks {
   id  Int @id @default(autoincrement())
   title String
+  category String
   description String
-  date DateTime
+  date String
   importance String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
